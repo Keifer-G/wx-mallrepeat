@@ -1,0 +1,69 @@
+/* pages/category/category.wxss */
+/* slidebar 部分 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.catescroll{
+  height: 100vh;
+  position: relative;
+}
+.slidebar{
+  width: 220rpx;
+  height: 100vh;
+}
+.slideitem{
+  width: 220rpx;
+  height: 100rpx;
+  background-color: #eee;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #666;
+  text-align: center
+}
+.slideactive{
+  border-left: 8rpx solid #ff5777;
+  color: #ff5777;
+  background-color: #ffffff;
+}
+
+
+/* subcate部分 */
+.catecontent{
+  position: fixed;
+  left: 220rpx;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.subcatecontent{
+  width: calc(100% - 220rpx);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.subcate{
+  width: 150rpx;
+  height: 200rpx;
+  font-size: 30rpx;
+  color: #666;
+  text-align: center;
+
+}
+.subcateimg{
+  width: 136rpx;
+  height: 136rpx;
+}
+
+
+/* tabbar 部分 */
+.catetabbar{
+  width: calc(100% - 220rpx);
+}
+
+
+/* goods部分 */
+.catagoods{
+  width: calc(100% - 220rpx)  
+}

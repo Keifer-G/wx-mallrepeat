@@ -1,0 +1,26 @@
+<!--pages/category/category.wxml-->
+<scroll-view class="catescroll" enable-flex="true">
+  <scroll-view class="slidebar" scroll-y>
+    <block wx:for="{{slideTitleList}}" wx:key="index">
+      <view class="slideitem {{ currentIndex === index ? 'slideactive':''}}" bindtap="slideClick" data-index="{{index}}"
+      data-item="{{item}}">
+        <text class="slidetitle">{{item.title}}</text>
+      </view>
+    </block>
+  </scroll-view>
+
+  <scroll-view class="catecontent" scroll-y enable-flex>
+    <view class="subcatecontent">
+      <block wx:for="{{showSubCate}}" wx:key="index">
+        <view class="subcate">
+          <image src="{{item.image}}" class="subcateimg"></image>
+          <text class="subcatetext">{{item.title}}</text>
+        </view>
+      </block>  
+    </view>
+
+    <view class="catetabbar"><tabbar titles="{{['精选','流行','新款']}}" bind:tabclick="tabClick"/></view> 
+
+    <view class="catagoods"><goods goodsList="{{showDetailList}}"/></view>
+  </scroll-view>
+</scroll-view>

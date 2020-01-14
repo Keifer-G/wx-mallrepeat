@@ -1,0 +1,11 @@
+<!--tabbar/tabbar.wxml-->
+<view class="tabbarcontainer">
+  <block wx:for="{{titles}}" wx:key="index">
+    <view class="tabitem {{currentIndex==index ? 'active' : ''}}" 
+    data-index="{{index}}"
+    bindtap="tabClick">
+    <text class="tabbartext">{{item}}</text>
+    </view>
+  </block>
+
+</view>

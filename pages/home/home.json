@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabbar":"../../components/tabbar/tabbar",
+    "goods":"../../components/goods/goods"
+  },
+  "navigationBarTitleText": "购物街"
+}

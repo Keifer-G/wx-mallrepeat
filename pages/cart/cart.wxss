@@ -1,0 +1,136 @@
+/* pages/cart/cart.wxss */
+.cart-scroll{
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+
+.cart-bottom-bar{
+    position: fixed;
+    line-height: 40px;
+    height: 40px;
+    background-color:#eee;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex
+}
+.bottomcheck{
+    width: 20px;
+    height: 20px;  
+    line-height: 20px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+}
+.bottom-bar{
+    display: flex;
+/*     padding-top: 10px;
+    height: 20px; */
+    align-items: center
+}
+/* .bottomcheck-content{
+    padding-top: 2px
+} */
+.cart-bottom-price{
+    margin-left: 10px;
+}
+.calculate{
+    position: absolute;
+    right: 0;
+    width: 80px;
+    background-color: #ff5777;
+    text-align: center;
+    color:white
+}
+.bottomcheck-image{
+  width: 16px;
+  height: 16px;
+}
+
+.check-button-image{
+  width: 16px;
+  height: 16px;
+}
+
+
+
+ .cart-list-item {
+    width: 100%;
+    display: flex;
+    font-size: 0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .item-selector {
+    width: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item-title,
+  .item-desc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .item-img {
+    padding: 5px;
+  }
+
+  .item-img-image {
+    width: 80px;
+    height: 100px;
+    display: block;
+    border-radius: 5px;
+  }
+
+  .item-info {
+    font-size: 17px;
+    color: #333;
+    padding: 5px 2px;
+    position: relative;
+    overflow: hidden;
+    right: 2px;
+  }
+
+ .item-desc {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+  }
+
+  .info-bottom {
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    right: -30px;
+    display: flex;
+  }
+
+.item-price {
+    color: orangered;
+  }
+.item-count{
+  position: relative;
+  right: -116px;
+}
+
+
+  .check-button {
+    border-radius: 50%;
+    border: 2px solid #dddddd
+}
+.check{
+    background-color:#ff5777;
+    border-color: #ff5777;
+    border-radius: 50%;  
+}

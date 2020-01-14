@@ -1,0 +1,38 @@
+<!--pages/home/home.wxml-->
+<scroll-view bindscrolltolower="loadMore" class="viewscroll" scroll-y="true">
+<!-- 轮播图 -->
+<swiper autoplay="{{true}}" 
+interval="{{3000}}" 
+circular
+class="swiper"
+indicator-dots
+indicator-active-color="#ffffff">
+  <block  wx:for="{{swiperData}}" wx:key="index">
+    <swiper-item class="swiperitem"> 
+        <image src="{{item.image}}" class="swiperimg" data-item="item"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 推荐1 -->
+<view class="recommend"> 
+  <block wx:for="{{recommendData}}" wx:key="index">
+    <view class="recommenditem">
+      <image src="{{item.image}}" class="recommendimg"></image>
+      <text class="recommendtext">{{item.title}}</text>
+    </view>
+  </block>
+</view>
+
+<!-- 推荐2 -->
+<view>
+  <image src="../../assets/img/home/recommend_bg.jpg" class="recimg"></image>
+</view>
+
+<!-- tabbar -->
+<tabbar titles="{{['精选','流行','新款']}}" bind:tabclick="tabClick"/>
+
+<!-- 展示对应的goods -->
+
+  <goods goodsList="{{goods[currentType].list}}" />
+</scroll-view>

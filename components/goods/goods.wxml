@@ -1,0 +1,13 @@
+<!--components/goos/goods.wxml-->
+<view class="goodslist">
+ <block wx:for="{{goodsList}}" wx:key="index" wx:for-item="goodsItemImg">
+  <view class="goodsitem" bindtap="naviTo" data-item="{{goodsItemImg}}">
+    <image class="itemimg" src="{{goodsItemImg.show.img || goodsItemImg.img || goodsItemImg.image}}" mode="widthFix"></image>
+      <view class="goodscontent">
+        <text class="goodstitle">{{goodsItemImg.title}}</text>
+        <text class="price">￥{{goodsItemImg.price}}</text> 
+        <text class="collect">★ {{goodsItemImg.cfav}}</text>
+      </view>
+  </view>
+</block>
+</view>

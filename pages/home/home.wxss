@@ -1,0 +1,35 @@
+/* pages/home/home.wxss */
+.swiperimg{
+  width: 100%;
+  height: 400rpx;
+}
+.swiper{
+  height: 400rpx;
+}
+.recommend{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24rpx;
+  border-bottom: 20rpx solid rgb(253, 192, 210);
+}
+.recommenditem{
+  width: 160rpx;
+  height: 240rpx
+}
+.recommendimg{
+  height: 160rpx;
+  width: 160rpx;
+}
+.recimg{
+  width: 100%
+}
+.viewscroll{
+  height: 100vh
+}
+.recommendtext{
+  text-align: center;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color:#666666;
+  margin-left: 22rpx
+}

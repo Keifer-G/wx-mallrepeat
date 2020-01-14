@@ -1,0 +1,48 @@
+<!--pages/cart/cart.wxml-->
+  <view class="cart-list">
+    <scroll-view class="cart-scroll">
+      <block wx:for="{{productList}}" wx:key="index" wx:for-item="itemInfo">
+
+        <view class="cart-list-item">
+          <view class="item-selector">
+              <view class="check-button {{itemInfo.ischeck?'check':''}}" bindtap="checkClick" data-item-info="{{itemInfo}}">
+                <image src="../../assets/img/cart/tick.png" alt="" class="check-button-image"></image>
+              </view>
+          </view>
+          <view class="item-img">
+            <image src="{{itemInfo.image}}" alt="商品图片" class="item-img-image"></image>
+          </view>
+          <view class="item-info">
+            <view class="item-title">{{itemInfo.title}}</view>
+            <view class="item-desc">商品描述: {{itemInfo.desc}}</view>
+            <view class="info-bottom">
+              <view class="item-price left">¥{{itemInfo.price}}</view>
+              <view class="item-count right">x{{itemInfo.count}}</view>
+            </view>
+          </view>
+        </view>
+
+      </block>
+    </scroll-view>
+  </view>
+
+
+
+<!-- bar -->
+    <view class="cart-bottom-bar">
+      <view class="bottom-bar">
+          <view class="bottomcheck {{allcheck?'check':''}}" bindtap="allClick">
+              <image src="../../assets/img/cart/tick.png" alt="" class="bottomcheck-image"></image>
+          </view>
+          <text class="bottomcheck-content">全选</text>
+      </view>
+
+      <view class="cart-bottom-price">
+          合计:{{totalPrice}}
+      </view>
+
+      <view class="calculate" bindtap="accountClick">
+          去结算({{lastList}})
+      </view>
+  </view>
+

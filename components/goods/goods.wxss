@@ -1,0 +1,43 @@
+/* components/goos/goods.wxss */
+.goodslist{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20rpx;
+    padding: 4rpx
+}
+.goodsitem{
+    width:48%;
+    position: relative;
+    padding-bottom: 80rpx
+}
+.itemimg{
+    width:100%;
+    border-radius:10rpx;
+}
+.goodscontent{
+    font-size: 28rpx;
+    color:#666;
+    text-align: center;
+    position: absolute;
+    bottom:10rpx;   
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.goodstitle{    
+    width: 360rpx;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    margin-bottom: 6rpx;
+    line-clamp: 3; 
+    display: block;   
+}
+.price{
+    color: #ff5777;
+    margin-right: 40rpx;
+}
+.collect{
+    position: relative;
+}

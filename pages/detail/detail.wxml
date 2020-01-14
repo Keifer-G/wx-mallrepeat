@@ -1,0 +1,213 @@
+<!--pages/detail/detail.wxml-->
+
+<scroll-view class="detailscroll" scroll-y bindscroll="scrollTo">
+<!-- 轮播图 -->
+  <swiper autoplay="{{true}}" 
+interval="{{3000}}" 
+circular
+class="topswiper"
+indicator-dots
+indicator-active-color="#ffffff">
+<block  wx:for="{{swiperImg}}" wx:key="index">
+    <swiper-item class="detswiperitem"> 
+        <image src="{{item}}" class="detswiperimg" data-item="item" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+  </swiper>
+
+  <!-- 基本信息 -->
+  <view class="base-info" >
+      <view class="info-title">{{ detailGoods.title }}</view>
+      <view class="info-price">
+        <text class="n-price">{{ detailGoods.newPrice }}</text>
+        <text class="o-price">{{ detailGoods.oldPrice }}</text>
+        <text
+          style="backgroundColor: {{goods.discountBgColor}}"
+          class="discount"
+        >{{ detailGoods.discount }}</text>
+      </view>
+      <view class="info-other">
+        <text>{{ detailGoods.columns[0] }}</text>
+        <text>{{ detailGoods.columns[1] }}</text>
+        <text>{{ detailGoods.services[detailGoods.services.length - 1].name }}</text>
+      </view>
+      <view class="info-service">
+        <view
+          wx:key="index"
+          class="info-service-item"
+          wx:for="{{detailGoods.services.length - 1}}"
+        >
+          <image src="{{detailGoods.services[index - 1].icon}}" class="info-service-img"></image>
+          <text class="info-service-text">{{ detailGoods.services[index - 1].name }}</text>
+        </view>
+      </view>
+  </view>
+
+<!-- 商品详细 -->
+  <view class="shop-info">
+    <view class="shop-top">
+      <image src="{{detailShop.logo}}" alt=""  class="shop-top-img"></image>
+      <text class="shop-top-title">{{ detailShop.name }}</text>
+    </view>
+    <view class="shop-middle">
+      <view class="shop-middle-item shop-middle-left">
+        <view class="info-sells">
+          <view class="sells-count">
+            {{ detailShop.sells | sellCountFilter }}
+          </view>
+          <view class="sells-text">总销量</view>
+        </view>
+        <view class="info-goods">
+          <view class="goods-count">
+            {{ detailShop.goodsCount }}
+          </view>
+          <view class="goods-text">全部宝贝</view>
+        </view>
+      </view>
+      <view class="shop-middle-item shop-middle-right">
+        <view class="shop-table">
+          <view wx:key="index" wx:for="{{detailShop.score}}" class="shop-tr">
+            <text class="shop-td">{{ item.name }}</text>
+            <text class="score shop-td {{ item.isBetter?'score-better':'' }}">{{ item.score }}</text>
+              <text class="{{ item.isBetter? 'better-more' : ''}} shop-td shop-better-text">{{ item.isBetter ? "高" : "低" }}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="shop-bottom">
+      <view class="enter-shop">进店逛逛</view>
+    </view>
+  </view>
+
+
+<!-- 图片展示 -->
+  <view class="image-info">
+    <view class="info-desc clear-fix">
+      <view class="start"></view>
+      <view class="desc">{{ detailInfo.desc }}</view>
+      <view class="end"></view>
+    </view>
+    <view wx:key="index" wx:for="{{detailInfo.detailImage}}">
+      <view class="info-key">{{ item.key }}</view>
+      <view class="info-list">
+        <block wx:for="{{detailInfoImage}}" wx:key="index" wx:for-item="image">
+          <image src="{{image}}" alt="" class="image-info-image" mode="widthFix"></image>
+        </block>  
+      </view>
+    </view>
+  </view>
+
+
+<!-- 商品参数 -->
+  <view class="param-info">
+    <text class="param-info-text">参数信息</text>
+    <view class="info-size param-table">
+      <block 
+        wx:key="index"
+        wx:for="{{detailParam.sizes}}"
+        wx:for-item="table"
+        wx:for-index="index">
+        <view class="param-tr">
+          <block wx:key="indey" wx:for="{{table}}" wx:for-item="tr" wx:for-index="indey" >
+            <view class="tr-td">
+              <block wx:key="indez" wx:for="{{tr}}" wx:for-item="td" wx:for-index="indez" >
+                <view class="param-td">{{td}}</view>
+              </block>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+
+    <view class="info-param param-table param-btable">
+      <view  class="param-tr param-btr">
+        <block  wx:for="{{detailParam.infos}}" wx:key="index" wx:for-item="info">
+          <view class="tr-tc">
+            <view class="info-param-key param-td">{{ info.key }}</view>
+            <view class="param-value param-td">{{ info.value }}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+<!-- 用户评价 -->
+<view class="comment-info">
+    <view class="info-header">
+      <view class="header-title">用户评价</view>
+      <view class="header-more">更多</view>
+    </view>
+    <view class="info-user">
+      <image src="{{commentInfo.user.avatar}}" alt="" class="info-user-img"></image>
+      <text class="info-user-text">{{ commentInfo.user.uname }}</text>
+    </view>
+    <view class="info-detail">
+      <view class="info-detail-p">{{ commentInfo.content }}</view>
+      <view class="info-other">
+        <text class="date">{{ commentInfo.created | showDate }}</text>
+        <text>{{ commentInfo.style }}</text>
+      </view>
+      <view class="info-imgs">
+        <block>
+          <image
+          class="info-imgs-img"
+          wx:key="index"
+          src="{{item}}"
+          alt=""
+          wx:for="{{commentInfo.images}}"
+          ></image>
+        </block>
+      </view>
+    </view>
+  </view>
+
+
+<!-- 推荐 -->
+<goods goodsList="{{recommend}}"></goods>
+
+
+<!-- 回到顶部 -->
+<view class="back-to-top nav-to {{ backtop ? 'totop' : 'nototop' }}" bindtap="scrollToTop">回到顶部</view>
+</scroll-view>
+
+<!-- 底部bar -->
+  <view class="bottom-bar">
+    <view class="bar-item bar-left">
+      <view class="bar-item-div">
+        <view class="icon">
+          <image src="../../assets/img/detail/detail_bottom.png" class="service" mode="widthFix"></image>
+        </view>
+        <text class="text">客服</text>
+      </view>
+      <view  class="bar-item-div">
+        <view class="icon">
+          <image src="../../assets/img/detail/detail_bottom.png" class=" shop" mode="widthFix"></image>
+        </view>
+        <text class="text">店铺</text>
+      </view>
+      <view class="bar-item-div" bindtap="selectClick">
+        <view class="icon">
+          <image src="../../assets/img/detail/detail_bottom.png" class="select  {{ selectColor?'selectactive':'unselectactive' }}" mode="widthFix"></image>
+        </view>
+        <span class="text">收藏</span>
+      </view>
+    </view>
+    <view class="bar-item bar-right">
+    <view bindtap="addToCart" class="cart">加入购物车</view>
+      <view class="buy">购买</view>
+    </view>
+  </view>
+
+
+
+<!-- 自制详情导航 -->
+<view class="detail-nav">
+  <view class="clicknavi {{overflow?'navioff':'navion'}}" bindtap="overnaviClick">
+    <view class="nav-to-base nav-to">商品展示</view>
+    <view class="nav-to-param nav-to">商品参数</view>
+    <view class="nav-to-comment nav-to">商品评价</view>
+    <view class="nav-to-recommend nav-to">商品推荐</view>
+  </view>
+</view>
+
+
